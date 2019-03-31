@@ -1,32 +1,40 @@
 package com.xebia.prizy.pricer.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 
 @Entity
 public class Product {
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(nullable = false, unique = true)
-    private String barCode;
+    @Column(name = "barCode", nullable = true, unique = true)
 
-    @Column(nullable = false)
+    private int barCode;
+
+    @Column(name = "name", nullable = true)
     private String name;
 
-    @Column(nullable = false)
-    private String discription;
+    @Column(name = "description", nullable = true)
+    private String description;
 
+    public long getId() {
+        return id;
+    }
 
-    public String getBarCode() {
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getBarCode() {
         return barCode;
     }
 
-    public void setBarCode(String barCode) {
+    public void setBarCode(int barCode) {
         this.barCode = barCode;
     }
 
@@ -39,18 +47,10 @@ public class Product {
     }
 
     public String getDiscription() {
-        return discription;
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setDiscription(String description) {
+        this.description = description;
     }
 }
