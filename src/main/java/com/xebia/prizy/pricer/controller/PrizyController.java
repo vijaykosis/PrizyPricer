@@ -1,14 +1,14 @@
 package com.xebia.prizy.pricer.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.xebia.prizy.pricer.model.Product;
 import com.xebia.prizy.pricer.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PrizyController {
@@ -21,6 +21,17 @@ public class PrizyController {
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
+
+    @RequestMapping("/product")
+    public Optional<Product> getProduct(@RequestParam(value = "id") long id) {
+        Optional<Product> product = productService.getProductById(id);
+
+        if (product.isPresent()) {
+            return product;
+        }
+        return null;
+    }
+
 
     /*@RequestMapping("/product")
     public ProductVO getProduct(@RequestParam(value = "code") String barCode) {

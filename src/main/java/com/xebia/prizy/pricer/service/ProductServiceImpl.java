@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -28,4 +29,8 @@ public class ProductServiceImpl implements ProductService {
         return allProductList;
     }
 
+    @Override
+    public Optional<Product> getProductById(long id) {
+        return productRepo.findById(id);
+    }
 }

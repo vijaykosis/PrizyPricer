@@ -10,7 +10,7 @@ public class Product {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     @Column(nullable = false, unique = true)
     private String barCode;
@@ -38,19 +38,19 @@ public class Product {
         this.name = name;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getDiscription() {
         return discription;
     }
 
     public void setDiscription(String discription) {
         this.discription = discription;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
