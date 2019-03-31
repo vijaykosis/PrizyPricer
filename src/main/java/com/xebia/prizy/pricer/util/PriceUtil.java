@@ -11,20 +11,7 @@ import java.util.List;
 @Component
 public class PriceUtil {
 
-
-   /* @Autowired
-    @Qualifier("productPriceImpl")
-    private ProductPriceImpl productPrice;
-
-*/
-    /*public  double findIdealPrice(List<SurveyProduct> surveyProducts)
-    {
-
-        return productPrice.findProductIdealPrice(surveyProducts);
-
-    }*/
-
-    public  Double getFirstAndSecondLowestNumberSum(List<SurveyProduct> surveyProducts) {
+    public Double getFirstAndSecondLowestNumberSum(List<SurveyProduct> surveyProducts) {
 
         double first, second;
 
@@ -45,7 +32,7 @@ public class PriceUtil {
     }
 
 
-    public  Double getFirstAndSecondHighestNumberSum(List<SurveyProduct> surveyProducts) {
+    public Double getFirstAndSecondHighestNumberSum(List<SurveyProduct> surveyProducts) {
 
         double i, firstLargest, secondLargest;
 
@@ -68,7 +55,7 @@ public class PriceUtil {
 
     }
 
-    public  Double calculateTotalSum(List<SurveyProduct> surveyProducts) {
+    public Double calculateTotalSum(List<SurveyProduct> surveyProducts) {
         return surveyProducts.stream().mapToDouble(x -> x.getPriceByUser()).sum();
     }
 }
