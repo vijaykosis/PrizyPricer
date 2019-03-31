@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -72,5 +74,17 @@ public class SurveyServiceImpl implements SurveyService {
 
         return productViewer;
 
+    }
+
+    @Override
+    public List<SurveyProduct> getAllSurvey() {
+
+        List<SurveyProduct> allProductList = new ArrayList<>();
+        Iterator<SurveyProduct> allProductsItr = surveyProductRepository.findAll().iterator();
+        while (allProductsItr.hasNext()) {
+            SurveyProduct product = (SurveyProduct) allProductsItr.next();
+            allProductList.add(product);
+        }
+        return allProductList;
     }
 }

@@ -12,17 +12,17 @@ import java.util.List;
 public class PriceUtil {
 
 
-    @Autowired
+   /* @Autowired
     @Qualifier("productPriceImpl")
     private ProductPriceImpl productPrice;
 
-
-    public  double findIdealPrice(List<SurveyProduct> surveyProducts)
+*/
+    /*public  double findIdealPrice(List<SurveyProduct> surveyProducts)
     {
 
         return productPrice.findProductIdealPrice(surveyProducts);
 
-    }
+    }*/
 
     public  Double getFirstAndSecondLowestNumberSum(List<SurveyProduct> surveyProducts) {
 

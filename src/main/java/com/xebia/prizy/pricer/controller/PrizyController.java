@@ -51,4 +51,9 @@ public class PrizyController {
     public String createSurveyProduct(@RequestBody SurveyProduct surveyProduct) {
         return surveyService.saveSurveyPrice(surveyProduct);
     }
+
+    @RequestMapping("product/readAllSurvey")
+    public List<SurveyProduct> readAllSurveyProduct() {
+        return surveyService.getAllSurvey();
+    }
 }
